@@ -1,8 +1,10 @@
 package com.example.notifications_practice;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendOnChannel1(View view) {
+        String title = editTextTitle.getText().toString();
+        String message = editTextMessage.getText().toString();
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                .build();
+        notificationManager.notify(1, notification);
     }
     public void sendOnChannel2(View view) {
     }
