@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity {
         notificationManager.notify(1, notification);
     }
     public void sendOnChannel2(View view) {
+        String title = editTextTitle.getText().toString();
+        String message = editTextMessage.getText().toString();
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_2_ID)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle("Title 2")
+                .setContentText("Message 2")
+                .setPriority(NotificationCompat.PRIORITY_LOW)
+                .build();
+        notificationManager.notify(2, notification);
     }
     public void sendOnChannel3(View view) {
     }
